@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f3efe6">
+    <meta name="author" content="Farah Mohamed Amine">
+    <title>Presentation script: Nobel prizes and Lakhdar Brahimi</title>
+
+    <link rel="icon" type="image/webp" href="/icon.webp">
+
+    <!-- Applies saved reading preferences before first paint, so there is no light-to-dark flash -->
+    <script>
+        (function () {
+            var r = document.documentElement;
+            r.classList.add('js');
+            try {
+                var s = localStorage, z = parseFloat(s.getItem('say-size'));
+                if (s.getItem('say-theme') === 'dark') r.dataset.theme = 'dark';
+                if (s.getItem('say-ar') === '1') r.classList.add('show-ar');
+                if (z) r.style.setProperty('--say', z + 'rem');
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="stylesheet" href="/script/css/theme.css">
+    <link rel="stylesheet" href="/script/css/controls.css">
+    <link rel="stylesheet" href="/script/css/content.css">
+    <link rel="stylesheet" href="/script/css/arabic.css">
+
+    <link rel="modulepreload" href="/script/js/metrics.js">
+    <link rel="modulepreload" href="/script/js/settings.js">
+    <link rel="modulepreload" href="/script/js/timer.js">
+    <script type="module" src="/script/js/app.js"></script>
+</head>
+<body>
+    <a class="skip" href="#script">Skip to the script</a>
+
+    <header class="bar">
+        <div class="bar-inner">
+            <div class="group" role="group" aria-label="Text size">
+                <button class="btn" id="smaller" type="button" aria-label="Smaller text">A&minus;</button>
+                <button class="btn" id="larger" type="button" aria-label="Larger text">A+</button>
+                <button class="btn" id="theme" type="button" aria-pressed="false">Reading mode</button>
+                <button class="btn" id="arbtn" type="button" aria-pressed="false" lang="ar" aria-label="Show Arabic translation">العربية</button>
+            </div>
+            <div class="group" role="group" aria-label="Timer">
+                <span class="clock" id="clock"><span id="clock-time">0:00</span><small id="clock-note">of 6:30</small></span>
+                <button class="btn primary" id="start" type="button">Start</button>
+                <button class="btn" id="reset" type="button">Reset</button>
+                <span class="sr-only" id="timer-status" role="status"></span>
+            </div>
+        </div>
+        <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+    </header>
+
+    <main id="script">
+        <div class="wrap">
+            <section class="head">
+                <p class="label rv">Spoken script &middot; about 6.5 minutes</p>
+                <h1 class="rv">Ten years of Nobel prizes, and the case for Lakhdar Brahimi</h1>
+                <p class="sub rv">A word-for-word script to read aloud, with pauses, emphasis, on-screen cues and answers to likely questions. It follows the web page section by section.</p>
+
+                <div class="stats rv">
+                    <div class="stat"><b id="wc">0</b><span>words</span></div>
+                    <div class="stat"><b id="rt">0:00</b><span>reading time at 130 words a minute</span></div>
+                    <div class="stat"><b>6</b><span>segments, plus questions</span></div>
+                </div>
+            </section>
+
+            <div class="prep">
+                <div class="card rv">
+                    <h2>Say these names</h2>
+                    <ul>
+                        <li><span class="say-as">Brahimi<i>bra-HEE-mee</i></span></li>
+                        <li><span class="say-as">Taif<i>ta-EEF</i></span></li>
+                        <li><span class="say-as">Bonn<i>bon</i></span></li>
+                        <li><span class="say-as">Kitagawa<i>kee-ta-GAH-wa</i></span></li>
+                        <li><span class="say-as">Sakaguchi<i>sa-ka-GOO-chee</i></span></li>
+                        <li><span class="say-as">Hassabis<i>ha-SAH-bis</i></span></li>
+                    </ul>
+                </div>
+                <div class="card rv">
+                    <h2>Delivery</h2>
+                    <ul>
+                        <li>Speak a little slower than feels natural. Nerves speed you up.</li>
+                        <li>Stop fully at every <span class="pause">pause</span>. Count one beat.</li>
+                        <li>Lean on the <strong>highlighted</strong> words. Everything else can be lighter.</li>
+                        <li>Look up at the room at the end of each paragraph, not in the middle.</li>
+                    </ul>
+                </div>
+                <div class="card rv">
+                    <h2>Timing</h2>
+                    <ul>
+                        <li>Opening: 0:40</li>
+                        <li>Peace prizes: 1:30</li>
+                        <li>Science: 1:00</li>
+                        <li>The Algerian case: 2:00</li>
+                        <li>What counts against him: 0:45</li>
+                        <li>Closing: 0:35</li>
+                        <li><b>Total: 6:30</b></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="legend controls-note rv">
+                <span><span class="pause">pause</span> stop for one beat</span>
+                <span><strong>Highlight</strong> stress this word</span>
+                <span><span class="slow">Dotted</span> slow down</span>
+                <span>Amber box: what to show on screen</span>
+            </p>
+
+            <!-- Opening -->
+            <section class="seg" data-target="40" aria-labelledby="s0">
+                <div class="seg-top">
+                    <div class="rv"><span class="label">Opening</span><h2 id="s0">The hook</h2></div>
+                    <span class="time rv">0:00 to 0:40</span>
+                </div>
+                <p class="cue rv"><b>On screen</b>The title page, with the headline and the four section links.</p>
+                <p class="say rv">Ten Nobel Peace Prizes were awarded between 2016 and 2025.<span class="pause">pause</span></p>
+                <p class="ar rv" lang="ar" dir="rtl">جرى منح عشر جوائز نوبل للسلام بين عامي 2016 و2025.</p>
+                <p class="say rv"><strong>Only two</strong> rewarded a deal that ended a specific conflict.<span class="pause">pause</span></p>
+                <p class="ar rv" lang="ar" dir="rtl">اثنتان فقط كافأتا اتفاقاً أنهى نزاعاً محدداً.</p>
+                <p class="say rv">So where are the <strong>negotiators</strong>?<span class="pause">pause</span></p>
+                <p class="ar rv" lang="ar" dir="rtl">فأين المفاوضون إذن؟</p>
+                <p class="say rv">Today I look at one Algerian negotiator, Lakhdar <span class="slow">Brahimi</span>, and ask whether he deserves the prize.</p>
+                <p class="ar rv" lang="ar" dir="rtl">أتناول اليوم مفاوضاً جزائرياً واحداً، هو الأخضر الإبراهيمي، وأسأل: هل يستحق الجائزة؟</p>
+                <p class="say rv">Every fact comes from sources I list at the end.</p>
+                <p class="ar rv" lang="ar" dir="rtl">كل المعلومات مصدرها مراجع أذكرها في النهاية.</p>
+                <p class="say rv">First the peace prizes, then the science prizes, then his case and its weak points.</p>
+                <p class="ar rv" lang="ar" dir="rtl">أبدأ بجوائز السلام، ثم جوائز العلوم، ثم قضيته ونقاط ضعفها.</p>
+                <p class="say rv">By the end, you will know why his case is <strong>real</strong>, and why it is <strong>narrow</strong>.</p>
+                <p class="ar rv" lang="ar" dir="rtl">وفي النهاية ستعرفون لماذا قضيته حقيقية، ولماذا هي محدودة.</p>
+                <p class="say rv">My title is: Ten years of Nobel prizes, and the case for Lakhdar Brahimi.</p>
+                <p class="ar rv" lang="ar" dir="rtl">عنوان عرضي: عشر سنوات من جوائز نوبل، وقضية الأخضر الإبراهيمي.</p>
+                <p class="note rv">Start with the first sentence, not with "good morning". If your teacher expects a greeting, say it before the timer starts.</p>
+                <p class="est rv"></p>
+            </section>
+
+            <!-- Peace prizes -->
+            <section class="seg" data-target="90" aria-labelledby="s1">
+                <div class="seg-top">
+                    <div class="rv"><span class="label">Part 1</span><h2 id="s1">The peace prizes</h2></div>
+                    <span class="time rv">0:40 to 2:10</span>
+                </div>
+                <p class="cue rv"><b>On screen</b>Section 01. Scroll to the table and let the rows appear. Point at the two green years, 2016 and 2019.</p>
+                <p class="say rv">Between 2016 and 2025, ten Peace Prizes were awarded. When you read the list, one thing stands out.<span class="pause">pause</span></p>
+                <p class="ar rv" lang="ar" dir="rtl">بين 2016 و2025 مُنحت عشر جوائز للسلام. وعند قراءة القائمة يبرز أمر واحد.</p>
+                <p class="say rv">Only <strong>two</strong> of them rewarded a negotiated end to a specific conflict.</p>
+                <p class="ar rv" lang="ar" dir="rtl">اثنتان فقط منها كافأتا إنهاءً تفاوضياً لنزاع محدد.</p>
+                <ul class="list rv">
+                    <li><strong>Juan Manuel Santos</strong>, in 2016, for ending more than fifty years of civil war in Colombia.<span class="ar" lang="ar" dir="rtl">خوان مانويل سانتوس عام 2016، لإنهاء أكثر من خمسين عاماً من الحرب الأهلية في كولومبيا.</span></li>
+                    <li><strong>Abiy Ahmed</strong>, in 2019, for settling the border conflict between Ethiopia and Eritrea.<span class="ar" lang="ar" dir="rtl">وآبي أحمد عام 2019، لتسوية النزاع الحدودي بين إثيوبيا وإريتريا.</span></li>
+                </ul>
+                <p class="say rv">The other eight went somewhere else.<span class="pause">pause</span></p>
+                <p class="ar rv" lang="ar" dir="rtl">أما الجوائز الثماني الأخرى فذهبت إلى جهة أخرى.</p>
+                <ul class="list rv">
+                    <li>In 2024, to <strong>Nihon Hidankyo</strong>, the survivors of Hiroshima and Nagasaki who testify to what nuclear weapons do.<span class="ar" lang="ar" dir="rtl">عام 2024 إلى «نيهون هيدانكيو»، الناجين من هيروشيما وناغازاكي الذين يشهدون على ما تفعله الأسلحة النووية.</span></li>
+                    <li>In 2017, to <strong>ICAN</strong>, for the campaign to ban nuclear weapons.<span class="ar" lang="ar" dir="rtl">وعام 2017 إلى «إيكان»، لحملتها من أجل حظر الأسلحة النووية.</span></li>
+                    <li>In 2021, to two journalists, <strong>Maria Ressa</strong> and <strong>Dmitry Muratov</strong>, for defending freedom of expression.<span class="ar" lang="ar" dir="rtl">وعام 2021 إلى صحفيَّين، ماريا ريسا وديمتري موراتوف، لدفاعهما عن حرية التعبير.</span></li>
+                    <li>In 2020, to the <strong>World Food Programme</strong>, for fighting hunger as a weapon of war.<span class="ar" lang="ar" dir="rtl">وعام 2020 إلى برنامج الأغذية العالمي، لمحاربة الجوع كسلاح في الحروب.</span></li>
+                    <li>In 2018, to <strong>Denis Mukwege</strong> and <strong>Nadia Murad</strong>, for confronting sexual violence in war.<span class="ar" lang="ar" dir="rtl">وعام 2018 إلى دينيس موكويغي ونادية مراد، لمواجهة العنف الجنسي في الحروب.</span></li>
+                </ul>
+                <p class="say rv">And three more went to democracy and human rights: Narges Mohammadi in 2023, three human rights groups from Belarus, Russia and Ukraine in 2022, and Maria Corina Machado last year.<span class="pause">pause</span></p>
+                <p class="ar rv" lang="ar" dir="rtl">وذهبت ثلاث جوائز أخرى إلى الديمقراطية وحقوق الإنسان: نرجس محمدي عام 2023، وثلاث منظمات حقوقية من بيلاروسيا وروسيا وأوكرانيا عام 2022، وماريا كورينا ماتشادو العام الماضي.</p>
+                <p class="say rv">So the recent pattern leans toward people who <strong>document, testify and campaign</strong>, rather than people who negotiate.</p>
+                <p class="ar rv" lang="ar" dir="rtl">فالاتجاه الحديث يميل إلى من يوثّقون ويشهدون ويناضلون، لا إلى من يفاوضون.</p>
+                <p class="note rv">If you run short of time, cut the bulleted list down to Nihon Hidankyo and the journalists. Keep the sentence about the two negotiated settlements. The rest of the talk depends on it.</p>
+                <p class="est rv"></p>
+            </section>
+
+            <!-- Science -->
+            <section class="seg" data-target="60" aria-labelledby="s2">
+                <div class="seg-top">
+                    <div class="rv"><span class="label">Part 2</span><h2 id="s2">The science prizes</h2></div>
+                    <span class="time rv">2:10 to 3:10</span>
+                </div>
+                <p class="cue rv"><b>On screen</b>Section 02. The four entries scroll past on the right. Do not read the page, only point at it.</p>
+                <p class="say rv">Now the science prizes of 2024 and 2025.<span class="pause">pause</span></p>
+                <p class="ar rv" lang="ar" dir="rtl">والآن إلى جوائز العلوم لعامي 2024 و2025.</p>
+                <ul class="list ordered rv">
+                    <li><span class="ord">Chemistry 2025</span>Kitagawa, Robson and Yaghi built materials full of <strong>tiny pores</strong>. They can trap gases, filter pollutants, and even pull water out of desert air.<span class="ar" lang="ar" dir="rtl">ابتكر كيتاغاوا وروبسون وياغي مواد مليئة بمسام صغيرة جداً. تستطيع حبس الغازات وتصفية الملوثات، بل واستخراج الماء من هواء الصحراء.</span></li>
+                    <li><span class="ord">Physics 2025</span>Clarke, Devoret and Martinis showed that an electrical circuit big enough to hold in your hand can follow <strong>quantum rules</strong>. Superconducting quantum computers build on that result.<span class="ar" lang="ar" dir="rtl">أثبت كلارك وديفوريه ومارتينيس أن دارة كهربائية بحجم يمكن حمله في اليد قد تتبع قوانين الكم. وتقوم الحواسيب الكمومية فائقة التوصيل على هذه النتيجة.</span></li>
+                    <li><span class="ord">Medicine 2025</span>Brunkow, Ramsdell and Sakaguchi found how <strong>regulatory T cells</strong> stop the immune system from attacking the body's own tissue.<span class="ar" lang="ar" dir="rtl">اكتشف برونكو ورامسديل وساكاغوتشي كيف تمنع الخلايا التائية التنظيمية الجهاز المناعي من مهاجمة أنسجة الجسم نفسه.</span></li>
+                    <li><span class="ord">Chemistry 2024</span>David Baker used computers to <strong>design</strong> new proteins, while Demis Hassabis and John Jumper built AlphaFold, which <strong>predicts</strong> a protein's shape from its sequence.<span class="ar" lang="ar" dir="rtl">استخدم ديفيد بيكر الحاسوب لتصميم بروتينات جديدة، بينما بنى ديميس هاسابيس وجون جامبر «ألفافولد» الذي يتنبأ بشكل البروتين من تسلسله.</span></li>
+                </ul>
+                <p class="note rv">Three of the four are about materials, circuits and cells you cannot see. One image helps: water pulled from desert air, or a circuit you can hold.</p>
+                <p class="est rv"></p>
+            </section>
+
+            <!-- The Algerian case -->
+            <section class="seg" data-target="120" aria-labelledby="s3">
+                <div class="seg-top">
+                    <div class="rv"><span class="label">Part 3</span><h2 id="s3">The Algerian case</h2></div>
+                    <span class="time rv">3:10 to 5:10</span>
+                </div>
+                <p class="cue rv"><b>On screen</b>Section 03. Stay on the four numbered arguments. Let the timeline fill as you scroll if you have time.</p>
+                <p class="say rv">Now, the Algerian.<span class="pause">pause</span></p>
+                <p class="ar rv" lang="ar" dir="rtl">والآن، إلى الجزائري.</p>
+                <p class="say rv">One important point first. The Nobel Foundation keeps nominations secret for <strong>fifty years</strong>. So I cannot tell you that Brahimi is a candidate. What I am giving you is my <strong>argument</strong> for why he deserves the prize.</p>
+                <p class="ar rv" lang="ar" dir="rtl">نقطة مهمة أولاً. تحتفظ مؤسسة نوبل بسرية الترشيحات خمسين عاماً. لذلك لا أستطيع القول إن الإبراهيمي مرشح. ما أقدمه لكم هو حجتي لماذا يستحق الجائزة.</p>
+                <p class="say rv">He was born in 1934, near Tablat in Algeria. In 1956, two years into the war of independence, he left his studies in Paris to join the liberation struggle. He was <strong>twenty-two</strong>. He represented the FLN in Southeast Asia, and later served as an ambassador, as an Arab League official, and as Algeria's foreign minister from 1991 to 1993. After that he worked for the United Nations.</p>
+                <p class="ar rv" lang="ar" dir="rtl">وُلد عام 1934 قرب تابلاط في الجزائر. وفي عام 1956، بعد عامين من اندلاع حرب الاستقلال، ترك دراسته في باريس والتحق بالنضال من أجل التحرير. كان عمره اثنين وعشرين عاماً. مثّل جبهة التحرير الوطني في جنوب شرق آسيا، ثم عمل سفيراً ومسؤولاً في جامعة الدول العربية، ووزيراً لخارجية الجزائر من 1991 إلى 1993. وبعد ذلك عمل في الأمم المتحدة.</p>
+                <p class="say rv">I have <strong>four reasons</strong>.<span class="pause">pause</span></p>
+                <p class="ar rv" lang="ar" dir="rtl">عندي أربعة أسباب.</p>
+                <ul class="list ordered rv">
+                    <li><span class="ord">One</span><strong>He has produced signed agreements.</strong> The Taif Agreement of 1989 ended fifteen years of civil war in Lebanon, and he was part of the effort behind it. In 2001 he chaired the Bonn conference on Afghanistan, which set up an interim authority under Hamid Karzai.<span class="ar" lang="ar" dir="rtl">أنتج اتفاقات موقّعة. فاتفاق الطائف عام 1989 أنهى خمس عشرة سنة من الحرب الأهلية في لبنان، وكان جزءاً من الجهد الذي أدى إليه. وفي عام 2001 ترأس مؤتمر بون حول أفغانستان، الذي أنشأ سلطة مؤقتة بقيادة حامد كرزاي.</span></li>
+                    <li><span class="ord">Two</span><strong>He changed how the UN plans peace operations.</strong> In 2000, Kofi Annan asked him to chair a panel on peacekeeping. The Brahimi Report asked for stronger mandates, a better planning capacity at headquarters, and faster deployment: thirty days for traditional missions and ninety days for complex ones.<span class="ar" lang="ar" dir="rtl">غيّر طريقة تخطيط الأمم المتحدة لعمليات السلام. ففي عام 2000 طلب منه كوفي عنان رئاسة لجنة حول حفظ السلام. وطالب تقرير الإبراهيمي بولايات أقوى، وقدرة تخطيط أفضل في المقر، ونشر أسرع: ثلاثين يوماً للبعثات التقليدية وتسعين يوماً للمعقدة.</span></li>
+                    <li><span class="ord">Three</span><strong>He has negotiated from every seat:</strong> as a rebel, as a minister, and as an envoy in Haiti, the Congo, South Africa, Afghanistan, Iraq and Syria.<span class="ar" lang="ar" dir="rtl">تفاوض من كل المواقع: متمرداً ووزيراً ومبعوثاً في هايتي والكونغو وجنوب إفريقيا وأفغانستان والعراق وسوريا.</span></li>
+                    <li><span class="ord">Four</span><strong>Peace institutions have recognised him.</strong> The Dag Hammarskjold Medal in 2004, the Hesse Peace Prize in 2006, and the Wateler Peace Prize in 2014.<span class="ar" lang="ar" dir="rtl">اعترفت به مؤسسات السلام. ميدالية داغ همرشولد عام 2004، وجائزة هسن للسلام عام 2006، وجائزة واتلر للسلام عام 2014.</span></li>
+                </ul>
+                <p class="note rv">If time is tight, drop reasons three and four. Keep one and two: they carry the argument.</p>
+                <p class="est rv"></p>
+            </section>
+
+            <!-- What counts against him -->
+            <section class="seg" data-target="45" aria-labelledby="s4">
+                <div class="seg-top">
+                    <div class="rv"><span class="label">Part 4</span><h2 id="s4">What counts against him</h2></div>
+                    <span class="time rv">5:10 to 5:55</span>
+                </div>
+                <p class="cue rv"><b>On screen</b>The section titled The other side, with its four short entries.</p>
+                <p class="say rv">A fair argument has to include the <strong>weak points</strong>.<span class="pause">pause</span></p>
+                <p class="ar rv" lang="ar" dir="rtl">أي حجة عادلة يجب أن تشمل نقاط الضعف.</p>
+                <ul class="list rv">
+                    <li><strong>Syria.</strong> He resigned in 2014 after nearly two years without a settlement. The Secretary-General called it a failure for the UN.<span class="ar" lang="ar" dir="rtl">سوريا. استقال عام 2014 بعد نحو عامين دون تسوية. ووصف الأمين العام ذلك بأنه فشل للأمم المتحدة.</span></li>
+                    <li><strong>Bonn.</strong> The Taliban were left out of the conference.<span class="ar" lang="ar" dir="rtl">بون. تُرك طالبان خارج المؤتمر.</span></li>
+                    <li><strong>Taif.</strong> It ended the fighting but left the sectarian system in Lebanon largely in place.<span class="ar" lang="ar" dir="rtl">الطائف. أنهى القتال لكنه أبقى النظام الطائفي في لبنان على حاله إلى حد كبير.</span></li>
+                    <li><strong>Algeria.</strong> He was foreign minister when the army cancelled elections in 1991 and 1992. One biographical profile says his justification of that move remains a stain on his career.<span class="ar" lang="ar" dir="rtl">الجزائر. كان وزيراً للخارجية حين ألغى الجيش الانتخابات عامي 1991 و1992. وتقول سيرة ذاتية واحدة إن تبريره لتلك الخطوة بقي وصمة في مسيرته.</span></li>
+                </ul>
+                <p class="est rv"></p>
+            </section>
+
+            <!-- Closing -->
+            <section class="seg" data-target="35" aria-labelledby="s5">
+                <div class="seg-top">
+                    <div class="rv"><span class="label">Closing</span><h2 id="s5">The bookend</h2></div>
+                    <span class="time rv">5:55 to 6:30</span>
+                </div>
+                <p class="cue rv"><b>On screen</b>Section 04, the assessment. Stay on it while you finish, then pause on the credit line.</p>
+                <p class="say rv">To close, back to the ten prizes.<span class="pause">pause</span></p>
+                <p class="ar rv" lang="ar" dir="rtl">لأختم، أعود إلى الجوائز العشر.</p>
+                <p class="say rv"><strong>Only two</strong> honoured a negotiated deal.</p>
+                <p class="ar rv" lang="ar" dir="rtl">اثنتان فقط كافأتا اتفاقاً تفاوضياً.</p>
+                <p class="say rv">Recent prizes lean toward people who <strong>document and campaign</strong>.</p>
+                <p class="ar rv" lang="ar" dir="rtl">تميل الجوائز الأخيرة إلى من يوثّقون ويناضلون.</p>
+                <p class="say rv">Brahimi helped on Taif, chaired Bonn, and led the panel behind the Brahimi Report.</p>
+                <p class="ar rv" lang="ar" dir="rtl">ساهم الإبراهيمي في الطائف، وترأس مؤتمر بون، وقاد اللجنة التي وضعت تقرير الإبراهيمي.</p>
+                <p class="say rv">But Syria failed, so the honest case is <strong>narrow</strong>.</p>
+                <p class="ar rv" lang="ar" dir="rtl">لكن سوريا فشلت، فالقضية العادلة محدودة.</p>
+                <p class="say rv">It rests on the craft of mediation, <strong>not</strong> on one settlement.<span class="pause">pause</span></p>
+                <p class="ar rv" lang="ar" dir="rtl">فهي تقوم على فن الوساطة، لا على تسوية واحدة.</p>
+                <p class="say rv">Many prizes honour those who <strong>speak up</strong>. His case asks about those who <strong>sit down and talk</strong>.<span class="pause">pause</span></p>
+                <p class="ar rv" lang="ar" dir="rtl">كثير من الجوائز تكرّم من يرفعون أصواتهم. وقضيته تسأل عمّن يجلسون ويتحدثون.</p>
+                <p class="say rv">Thank you.</p>
+                <p class="ar rv" lang="ar" dir="rtl">شكراً لكم.</p>
+                <p class="note rv">The segments add up to 6:30 when spoken. To land on five minutes, trim the bulleted list in Part 1, drop reasons three and four in Part 3, and cut the sources line from the opening. Questions come after the thank you.</p>
+                <p class="est rv"></p>
+            </section>
+
+            <!-- Q and A -->
+            <section class="qa" aria-labelledby="qa-h">
+                <span class="label rv">If someone asks</span>
+                <h2 id="qa-h" class="rv">Likely questions</h2>
+
+                <details class="rv">
+                    <summary>Why stop at 2025? What about the 2026 Peace Prize?</summary>
+                    <p>The research covers 2016 to 2025. The 2026 Peace Prize was announced in October and is not part of this work, so say that plainly instead of guessing.<span class="ar" lang="ar" dir="rtl"><b>لماذا التوقف عند 2025؟ وماذا عن جائزة السلام 2026؟</b><br>يغطي البحث الفترة من 2016 إلى 2025. أُعلنت جائزة السلام 2026 في أكتوبر وليست ضمن هذا العمل، فقل ذلك بوضوح بدل التخمين.</span></p>
+                </details>
+                <details class="rv">
+                    <summary>Is Brahimi really a candidate?</summary>
+                    <p>Nobody outside the committee can say. Nomination records stay secret for fifty years, so the talk makes an argument for why he deserves the prize and does not claim he is nominated.<span class="ar" lang="ar" dir="rtl"><b>هل الإبراهيمي مرشح فعلاً؟</b><br>لا يستطيع أحد خارج اللجنة الجزم. تبقى سجلات الترشيح سرية خمسين عاماً، لذلك يقدم العرض حجة لماذا يستحق الجائزة ولا يدّعي أنه مرشح.</span></p>
+                </details>
+                <details class="rv">
+                    <summary>Syria failed. Why is that not a reason to reject him?</summary>
+                    <p>It is a serious weakness, and the talk says so. The argument is about his method and the Brahimi Report, which stand apart from the Syria result. A mediator can fail on the hardest case and still change how peace operations are planned.<span class="ar" lang="ar" dir="rtl"><b>فشل في سوريا. لماذا لا يكون ذلك سبباً لرفضه؟</b><br>إنه ضعف خطير، والعرض يقوله. والحجة تدور حول منهجه وتقرير الإبراهيمي، وهما منفصلان عن نتيجة سوريا. فقد يفشل الوسيط في أصعب الحالات ويغيّر مع ذلك طريقة تخطيط عمليات السلام.</span></p>
+                </details>
+                <details class="rv">
+                    <summary>Has the Peace Committee honoured people like him before?</summary>
+                    <p>Yes: Ralph Bunche in 1950 for mediation in Palestine, the United Nations and Kofi Annan in 2001, and Martti Ahtisaari in 2008 for peacemaking. Recent prizes lean toward advocates and institutions, which is why his case is narrower than a list of agreements.<span class="ar" lang="ar" dir="rtl"><b>هل كرّمت لجنة السلام أمثاله من قبل؟</b><br>نعم: رالف بانش عام 1950 للوساطة في فلسطين، والأمم المتحدة وكوفي عنان عام 2001، ومارتي أهتيساري عام 2008 لصنع السلام. وتميل الجوائز الأخيرة إلى الناشطين والمؤسسات، ولذلك فقضيته أضيق من قائمة اتفاقات.</span></p>
+                </details>
+                <details class="rv">
+                    <summary>What did the Brahimi Report actually change?</summary>
+                    <p>It asked for more robust mandates, a stronger planning and support capacity at UN headquarters, and rapid deployment. The Security Council acted on several points in Resolution 1327 later in 2000, and a 2003 Stimson Center review found most recommendations had been put into practice.<span class="ar" lang="ar" dir="rtl"><b>ماذا غيّر تقرير الإبراهيمي فعلاً؟</b><br>طالب بولايات أقوى، وقدرة تخطيط ودعم أكبر في مقر الأمم المتحدة، ونشر سريع. وتحرك مجلس الأمن في عدة نقاط في القرار 1327 لاحقاً في عام 2000، ووجدت مراجعة لمركز ستيمسون عام 2003 أن معظم التوصيات طُبقت.</span></p>
+                </details>
+            </section>
+
+            <footer class="foot">
+                <p>Made by Farah Mohamed Amine. Companion to the web page <em>Nobel prizes 2016 to 2025 and the case for Lakhdar Brahimi</em>, which lists every source. Press Ctrl or Cmd and P to print this script.</p>
+            </footer>
+        </div>
+    </main>
+</body>
+</html>

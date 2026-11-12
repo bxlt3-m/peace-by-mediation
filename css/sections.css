@@ -1,0 +1,243 @@
+/* Components: hero, table, science entries, arguments, timeline, prose, reveal */
+
+/* ---- Hero ---- */
+.hero {
+    padding-top: clamp(56px, 9vw, 112px);
+    padding-bottom: clamp(56px, 8vw, 96px);
+}
+
+.display {
+    font-weight: 700;
+    font-size: clamp(2.5rem, 7.4vw, 5.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin: 20px 0 32px;
+    max-width: 14em;
+}
+
+.line { display: block; overflow: hidden; padding-bottom: 0.08em; }
+.line > span { display: block; }
+.line:nth-child(2) > span { --l: 1; }
+.line:nth-child(3) > span { --l: 2; }
+
+.lede {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 38rem;
+}
+
+.byline { margin-top: 20px; font-size: 0.9rem; color: var(--muted); }
+.byline strong { color: var(--ink); font-weight: 600; }
+
+.index {
+    margin-top: clamp(40px, 6vw, 72px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    border-top: 1px solid var(--ink);
+}
+.index a {
+    display: block;
+    min-height: 44px;
+    padding: 18px 20px 22px 0;
+    text-decoration: none;
+}
+.index .n { display: block; font-family: var(--serif); font-size: 0.95rem; color: var(--green); }
+.index .t { display: inline-block; font-weight: 600; margin-top: 2px; }
+.index .t::after {
+    content: " \2192";
+    display: inline-block;
+    transition: transform 0.2s var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .index a:hover .t::after { transform: translateX(4px); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .line > span {
+        animation: rise 0.8s var(--ease-out) both;
+        animation-delay: calc(var(--l, 0) * 90ms + 80ms);
+    }
+    @keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+}
+
+/* ---- Section heads ---- */
+.shead { max-width: 46rem; margin-bottom: clamp(36px, 5vw, 64px); }
+.shead .label { display: block; margin-bottom: 14px; }
+.shead p { margin-top: 16px; color: var(--muted); font-size: 1.075rem; max-width: 40rem; }
+
+/* ---- Peace prize table ---- */
+.tbl { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+.tbl th {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--muted);
+    text-align: left;
+    padding: 0 20px 14px 0;
+    border-bottom: 1px solid var(--ink);
+}
+.tbl td {
+    padding: 20px 20px 20px 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.5;
+}
+.tbl td:first-child {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    width: 1%;
+}
+.tbl td:nth-child(2) { font-weight: 600; max-width: 17rem; }
+.tbl td:nth-child(3) { max-width: 11rem; }
+.tbl td:last-child { color: var(--muted); max-width: 30rem; }
+.tbl .deal td:first-child { color: var(--green); }
+
+.tag {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green);
+}
+.legend { margin-top: 18px; font-size: 0.9rem; color: var(--muted); }
+
+@media (max-width: 760px) {
+    .tbl, .tbl tbody, .tbl tr, .tbl td { display: block; width: 100%; }
+    .tbl thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .tbl tr { padding: 18px 0; border-bottom: 1px solid var(--rule); }
+    .tbl td { padding: 2px 0; border: 0; width: auto; max-width: none !important; }
+    .tbl td:nth-child(3) { font-size: 0.85rem; color: var(--muted); }
+    .tbl td:last-child { margin-top: 6px; }
+}
+
+/* ---- Science entries ---- */
+.entry { padding: 28px 0; border-top: 1px solid var(--rule); }
+.entry:first-child { border-top-color: var(--ink); padding-top: 24px; }
+.k {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green);
+}
+.entry h3 { font-size: clamp(1.3rem, 2.4vw, 1.7rem); line-height: 1.2; margin: 8px 0 10px; }
+.entry p { color: var(--muted); max-width: 36rem; }
+
+/* ---- The Algerian case ---- */
+.note {
+    border-left: 3px solid var(--green);
+    padding: 4px 0 4px 20px;
+    max-width: 44rem;
+    color: var(--muted);
+}
+.note a, .prose a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.foot a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+.args {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 clamp(32px, 5vw, 72px);
+    margin-top: 56px;
+}
+.arg { padding: 28px 0 32px; border-top: 1px solid var(--rule); }
+.arg .num { font-family: var(--serif); font-size: 2.4rem; line-height: 1; color: var(--green); }
+.arg h3 { font-size: 1.4rem; line-height: 1.2; margin: 14px 0 12px; }
+.arg .k { display: block; margin-bottom: 8px; }
+.arg p { color: var(--muted); }
+.arg p + p { margin-top: 12px; }
+
+/* The first counter-argument sits flush under its heading */
+.counter > .arg:first-child { padding-top: 0; border-top: 0; }
+
+@media (max-width: 800px) {
+    .args { grid-template-columns: 1fr; }
+}
+
+/* ---- Timeline ---- */
+.tl { position: relative; list-style: none; padding-left: 32px; --fill: 0; }
+.tl::before,
+.tl::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+}
+.tl::before { background: var(--rule); }
+.tl::after {
+    background: var(--green);
+    transform: scaleY(var(--fill));
+    transform-origin: top;
+    will-change: transform;
+}
+
+.tl li { position: relative; padding-bottom: 28px; }
+.tl li:last-child { padding-bottom: 0; }
+.tl li::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: -32px;
+    top: 0.5em;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--rule);
+    transition: background-color 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+}
+.tl li.on::before { background: var(--green); border-color: var(--green); }
+.tl .y { display: block; font-family: var(--serif); font-weight: 700; font-size: 1.1rem; }
+.tl .d { display: block; color: var(--muted); max-width: 34rem; }
+
+/* ---- Assessment ---- */
+.prose p { max-width: 38rem; margin-bottom: 1.1em; }
+.prose p:last-child { margin-bottom: 0; }
+
+/* ---- Scroll reveal: transform and opacity only ---- */
+.js .rv {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    transition-delay: calc(var(--i, 0) * 60ms);
+}
+.js .rv.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+    .js .rv { transform: none; transition: opacity 0.2s ease; transition-delay: 0s; }
+    .tl li::before { transition: none; }
+}
+
+/* ---- Small screens ---- */
+@media (max-width: 480px) {
+    .display { margin-bottom: 24px; }
+    .shead p { font-size: 1rem; }
+    .index { grid-template-columns: 1fr 1fr; }
+    .arg .num { font-size: 2rem; }
+    .tbl td:first-child { font-size: 1.35rem; }
+    .tl { padding-left: 28px; }
+    .tl li::before { left: -28px; }
+}
+
+@media (max-width: 360px) {
+    .display { font-size: 2.15rem; }
+    .index { grid-template-columns: 1fr; }
+}
+
+@media (max-height: 480px) and (orientation: landscape) {
+    .hero { padding-top: 32px; }
+}
+
+@media print {
+    .js .rv { opacity: 1; transform: none; }
+    .bar { position: static; }
+}

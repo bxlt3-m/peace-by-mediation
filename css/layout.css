@@ -1,0 +1,152 @@
+/* Page frame: container, sticky header, nav, split grids, footer */
+.wrap,
+.bar-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-left: max(var(--gut), env(safe-area-inset-left));
+    padding-right: max(var(--gut), env(safe-area-inset-right));
+}
+
+section { padding: clamp(72px, 11vw, 132px) 0; }
+
+/* ---- Header ---- */
+.bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+}
+
+.bar-inner {
+    height: var(--bar-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Let the nav shrink inside the flex bar so its own overflow-x scroll works */
+.bar-inner nav { min-width: 0; }
+
+.nav {
+    display: flex;
+    gap: 26px;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+
+.nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.875rem;
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.15s ease;
+}
+.nav a[aria-current="true"] {
+    color: var(--ink);
+    box-shadow: inset 0 -2px 0 var(--green);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .nav a:hover { color: var(--ink); }
+}
+
+.progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    pointer-events: none;
+}
+#progress {
+    display: block;
+    height: 100%;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    will-change: transform;
+}
+
+/* ---- Two-column layouts: sticky heading beside content ---- */
+.sci,
+.split {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: start;
+}
+.split { margin-top: clamp(72px, 10vw, 120px); }
+.split-flush { margin-top: 0; }
+
+.sci .shead,
+.split .shead {
+    position: sticky;
+    top: 96px;
+    margin-bottom: 0;
+}
+
+/* ---- Footer ---- */
+.foot {
+    background: var(--forest);
+    color: var(--mint);
+    padding: 64px 0 72px;
+    font-size: 0.92rem;
+}
+.foot h2 { font-size: 1.4rem; margin-bottom: 20px; letter-spacing: 0; }
+.foot ul { list-style: none; columns: 2 320px; column-gap: 48px; }
+.foot li { break-inside: avoid; padding: 6px 0; }
+.foot a { overflow-wrap: anywhere; }
+.foot .fine { margin-top: 32px; color: var(--sage); max-width: 40rem; }
+.foot :focus-visible { outline-color: var(--leaf); }
+
+.credit {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(233, 239, 230, 0.22);
+}
+
+/* ---- Breakpoints ---- */
+@media (max-width: 1024px) {
+    .sci, .split { gap: 40px; }
+}
+
+@media (max-width: 860px) {
+    .sci, .split { grid-template-columns: 1fr; }
+    .sci .shead, .split .shead { position: static; margin-bottom: 8px; }
+}
+
+@media (max-width: 640px) {
+    .nav {
+        gap: 20px;
+        -webkit-mask-image: linear-gradient(to right, #000 88%, transparent);
+        mask-image: linear-gradient(to right, #000 88%, transparent);
+    }
+}
+
+@media (max-width: 560px) {
+    .brand { display: none; }
+}
+
+@media (max-width: 480px) {
+    section { padding: 56px 0; }
+    .foot { padding: 48px 0 56px; }
+}
+
+@media (max-height: 480px) and (orientation: landscape) {
+    .sci .shead, .split .shead { position: static; }
+}
