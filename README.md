@@ -65,6 +65,7 @@ The project has two parts:
 ```
 /
 ├── index.html               Main research report
+├── 404.html                 Custom not-found page (served by Vercel for unknown URLs)
 ├── icon.webp                Favicon (512×512, transparent, ~47 KB)
 ├── og-image.jpg             Social preview image (1200×630, ~156 KB)
 ├── vercel.json              cleanUrls on, trailingSlash off
@@ -75,12 +76,14 @@ The project has two parts:
 │   ├── tokens.css           Palette, type stacks, motion and spacing variables
 │   ├── base.css             Reset, global type, skip link
 │   ├── layout.css           Sticky header, nav, split grids, footer
-│   └── sections.css         Hero, table, science entries, arguments, timeline, reveal
+│   ├── sections.css         Hero, table, science entries, arguments, timeline, reveal
+│   └── not-found.css        404 page layout
 ├── js/
 │   ├── main.js              Entry point
 │   ├── reveal.js            Scroll-reveal (IntersectionObserver)
 │   ├── scroll.js            Progress bar and timeline fill (one rAF loop)
-│   └── nav.js               Active-section highlighting
+│   ├── nav.js               Active-section highlighting
+│   └── not-found.js         Shows the failed address and suggests the closest real page
 └── script/
     ├── script.html          Spoken script, Q&A, Arabic translation
     ├── css/
@@ -126,6 +129,10 @@ Or import the repository in the Vercel dashboard. Framework preset: **Other**. N
 The social preview image is `og-image.jpg`, wired up through the Open Graph and Twitter tags in the `<head>` of `index.html`. If you move the site to another domain, update the four `https://peace-by-mediation.vercel.app` URLs there.
 
 After deploying, check the preview with the [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) or [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/). On Telegram, send the link to [@WebpageBot](https://t.me/WebpageBot) to refresh a cached preview.
+
+### Custom 404 page
+
+Vercel serves `404.html` for any address that does not exist. It shows the address that failed, and if it looks like a typo of a real page (for example `/scrpt44` or `/script`) it suggests `/script/script`.
 
 ## <img src=".github/icons/zap.svg" width="24" height="24" align="absmiddle" alt=""> Performance
 
