@@ -1,0 +1,128 @@
+/* 404 page */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.nf {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: clamp(32px, 5vw, 64px);
+    padding-bottom: clamp(40px, 6vw, 72px);
+}
+
+/* The medal stands in for the zero */
+.code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.04em;
+    margin: 12px 0 8px;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(6rem, 24vw, 13rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+.code img {
+    width: 0.82em;
+    height: 0.82em;
+}
+
+.nf h1 {
+    font-size: clamp(1.6rem, 4.2vw, 2.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.lede {
+    margin-top: 14px;
+    max-width: 34rem;
+    color: var(--muted);
+    font-size: clamp(1.02rem, 1.8vw, 1.15rem);
+    line-height: 1.55;
+}
+.lede code {
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: var(--rule);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.9em;
+    overflow-wrap: anywhere;
+}
+
+.suggest { margin-top: 16px; font-weight: 600; }
+.suggest a {
+    color: var(--green);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.go {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 11px 24px;
+    border: 1px solid var(--green);
+    border-radius: 9999px;
+    background: var(--green);
+    color: var(--paper);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.15s var(--ease-out), background-color 0.15s ease;
+}
+.go-ghost {
+    background: transparent;
+    border-color: var(--ink);
+    color: var(--ink);
+}
+.go:active { transform: scale(0.96); }
+
+@media (hover: hover) and (pointer: fine) {
+    .go:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+    .go-ghost:hover { background: var(--ink); color: var(--paper); }
+}
+
+/* Only two nav links, so no edge fade */
+.nav { -webkit-mask-image: none; mask-image: none; }
+
+/* Footer is a single line here, so it needs less room than on the report */
+.foot { padding: 20px 0; }
+.foot-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .code img { animation: settle 0.9s var(--ease-out) both 0.1s; }
+    @keyframes settle {
+        from { opacity: 0; transform: rotate(-70deg) scale(0.7); }
+        to   { opacity: 1; transform: none; }
+    }
+}
+
+@media (max-width: 480px) {
+    .actions { width: 100%; flex-direction: column; }
+    .go { width: 100%; }
+}

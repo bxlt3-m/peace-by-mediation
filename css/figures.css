@@ -1,0 +1,158 @@
+/* Data figures: prize chart, mission map, and the readout card they share */
+
+.readout {
+    margin-top: 20px;
+    padding: 20px 24px;
+    min-height: 9.5rem;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+}
+.readout .k { display: block; }
+.readout h3 {
+    margin: 6px 0 8px;
+    font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+    line-height: 1.2;
+}
+.readout p { max-width: 44rem; color: var(--muted); }
+.readout .tag { margin-top: 10px; }
+
+/* ---- Prize chart ---- */
+.chart { margin: 0 0 clamp(36px, 5vw, 56px); }
+.chart[hidden] { display: none; }
+.chart figcaption {
+    margin-bottom: 18px;
+    font-family: var(--serif);
+    font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.lane { padding: 14px 0 4px; border-top: 1px solid var(--rule); }
+.lane-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.lane-deal .lane-label { color: var(--green); }
+
+.dots, .axis { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); }
+.slot { display: grid; place-items: center; height: 56px; }
+.slot i { width: 5px; height: 5px; border-radius: 50%; background: var(--rule); }
+
+.dot {
+    position: relative;
+    border: 0;
+    border-radius: 50%;
+    background: var(--muted);
+    cursor: pointer;
+    transition: transform 0.15s var(--ease-out), box-shadow 0.15s ease;
+}
+.dot::after { content: ""; position: absolute; inset: -9px; } /* larger tap target */
+.dot-deal { width: 44px; height: 44px; background: var(--green); }
+.dot-doc { width: 26px; height: 26px; }
+.dot[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--ink); }
+.dot:active { transform: scale(0.92); }
+
+@media (hover: hover) and (pointer: fine) {
+    .dot:hover { transform: scale(1.12); }
+}
+
+.axis { margin-top: 6px; padding-top: 10px; border-top: 1px solid var(--ink); }
+.axis span {
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 560px) {
+    .dot-deal { width: 32px; height: 32px; }
+    .dot-doc { width: 20px; height: 20px; }
+    .axis span { font-size: 0.64rem; }
+}
+
+/* ---- Mission map ---- */
+.map { margin: clamp(56px, 8vw, 88px) 0 0; }
+.map figcaption { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+.map .cap {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 2.8vw, 2rem);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.map-frame {
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+}
+.map svg { display: block; width: 100%; height: auto; }
+.map .land { fill: var(--rule); }
+.map .hit { fill: var(--green); opacity: 0.5; }
+.map .lead { stroke: var(--muted); stroke-width: 1; }
+.map .spot { fill: var(--ink); }
+
+.map .pin { cursor: pointer; }
+.map .disc {
+    fill: var(--green);
+    stroke: var(--bg);
+    stroke-width: 2;
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 0.15s var(--ease-out), fill 0.15s ease;
+}
+.map .pin text {
+    fill: var(--bg);
+    font: 700 15px var(--sans);
+    text-anchor: middle;
+    dominant-baseline: central;
+    pointer-events: none;
+}
+.map .pin.on .disc { fill: var(--ink); transform: scale(1.2); }
+
+@media (hover: hover) and (pointer: fine) {
+    .map .pin:hover .disc { transform: scale(1.15); }
+}
+
+/* The numbers get too small to read on a phone; the chips below carry them */
+@media (max-width: 640px) {
+    .map .pin text { display: none; }
+    .map .disc { r: 9; }
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; list-style: none; }
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 16px 0 8px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.12s ease-out, background-color 0.15s ease;
+}
+.chip b {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--bg);
+    font-size: 0.78rem;
+}
+.chip:active { transform: scale(0.96); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.chip[aria-pressed="true"] b { background: var(--bg); color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) {
+    .dot, .chip, .map .disc, .fn-pop { transition: none; }
+}

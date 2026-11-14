@@ -1,0 +1,251 @@
+/* Page frame: container, sticky header, nav, split grids, footer */
+.wrap,
+.bar-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-left: max(var(--gut), env(safe-area-inset-left));
+    padding-right: max(var(--gut), env(safe-area-inset-right));
+}
+
+section { padding: clamp(72px, 11vw, 132px) 0; }
+
+/* ---- Header ---- */
+.bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+}
+
+.bar-inner {
+    height: var(--bar-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Let the nav shrink inside the flex bar so its own overflow-x scroll works */
+.bar-inner nav { min-width: 0; }
+
+.nav {
+    display: flex;
+    gap: 26px;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+
+.nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.875rem;
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.15s ease;
+}
+.nav a[aria-current="true"] {
+    color: var(--ink);
+    box-shadow: inset 0 -2px 0 var(--green);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .nav a:hover { color: var(--ink); }
+}
+
+/* ---- Theme switch ---- */
+.theme-btn {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: transform 0.12s ease-out, border-color 0.15s ease;
+}
+.theme-btn svg { width: 20px; height: 20px; }
+.theme-btn .i-sun { display: none; }
+[data-theme="dark"] .theme-btn .i-moon { display: none; }
+[data-theme="dark"] .theme-btn .i-sun { display: block; }
+.theme-btn:active { transform: scale(0.94); }
+
+@media (hover: hover) and (pointer: fine) {
+    .theme-btn:hover { border-color: var(--ink); }
+}
+
+.progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    pointer-events: none;
+}
+#progress {
+    display: block;
+    height: 100%;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    will-change: transform;
+}
+
+/* ---- Two-column layouts: sticky heading beside content ---- */
+.sci,
+.split {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: start;
+}
+.split { margin-top: clamp(72px, 10vw, 120px); }
+.split-flush { margin-top: 0; }
+
+.sci .shead,
+.split .shead {
+    position: sticky;
+    top: 96px;
+    margin-bottom: 0;
+}
+
+/* ---- Footer ---- */
+.foot {
+    background: var(--forest);
+    color: var(--mint);
+    padding: 64px 0 72px;
+    font-size: 0.92rem;
+}
+.foot h2 { font-size: 1.4rem; margin-bottom: 20px; letter-spacing: 0; }
+.foot .sources { columns: 2 320px; column-gap: 48px; padding-left: 2.4ch; }
+.foot .sources li {
+    break-inside: avoid;
+    padding: 6px 0 6px 4px;
+    border-radius: 6px;
+    scroll-margin-top: 96px;
+}
+.foot .sources li::marker { color: var(--sage); font-variant-numeric: tabular-nums; }
+.foot .sources li:target { background: rgba(111, 207, 154, 0.14); }
+.foot .back { margin-left: 8px; color: var(--leaf); text-decoration: none; }
+.foot a { overflow-wrap: anywhere; }
+.foot .fine { margin-top: 32px; color: var(--sage); max-width: 40rem; }
+.foot :focus-visible { outline-color: var(--leaf); }
+
+/* ---- GitHub card: graphite tile with a blue pill button ---- */
+.sprite { position: absolute; }
+
+.repo {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px 28px;
+    margin-top: 48px;
+    padding: 28px 32px;
+    background: var(--graphite);
+    border-radius: 18px;
+}
+.repo-mark { width: 44px; height: 44px; flex: none; fill: #fff; }
+.repo-copy { flex: 1 1 260px; }
+.repo h3 {
+    font-family: var(--sans);
+    font-size: 1.3125rem;
+    font-weight: 600;
+    line-height: 1.19;
+    letter-spacing: 0.011em;
+    color: #fff;
+}
+.repo p {
+    margin-top: 4px;
+    max-width: 34rem;
+    font-size: 1.0625rem;
+    line-height: 1.47;
+    letter-spacing: -0.022em;
+    color: var(--silver);
+}
+
+.foot .pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 11px 22px;
+    border-radius: 9999px;
+    background: var(--action);
+    color: #fff;
+    font-size: 1.0625rem;
+    line-height: 1.24;
+    letter-spacing: -0.022em;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: transform 0.15s var(--ease-out), background-color 0.15s ease;
+}
+.foot .pill svg { width: 20px; height: 20px; flex: none; fill: currentColor; }
+.foot .pill:active { transform: scale(0.95); }
+.foot .pill:focus-visible { outline: 2px solid var(--action-on-dark); outline-offset: 3px; }
+
+@media (hover: hover) and (pointer: fine) {
+    .foot .pill:hover { background: var(--action-hover); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .foot .pill { transition: none; }
+}
+
+.credit {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(233, 239, 230, 0.22);
+}
+
+/* ---- Breakpoints ---- */
+@media (max-width: 1024px) {
+    .sci, .split { gap: 40px; }
+}
+
+@media (max-width: 860px) {
+    .sci, .split { grid-template-columns: 1fr; }
+    .sci .shead, .split .shead { position: static; margin-bottom: 8px; }
+}
+
+@media (max-width: 640px) {
+    .nav {
+        gap: 20px;
+        -webkit-mask-image: linear-gradient(to right, #000 88%, transparent);
+        mask-image: linear-gradient(to right, #000 88%, transparent);
+    }
+}
+
+@media (max-width: 560px) {
+    .brand { display: none; }
+}
+
+@media (max-width: 480px) {
+    section { padding: 56px 0; }
+    .foot { padding: 48px 0 56px; }
+    .repo { padding: 24px; }
+    .foot .pill { width: 100%; }
+}
+
+@media print {
+    .repo { display: none; }
+}
+
+@media (max-height: 480px) and (orientation: landscape) {
+    .sci .shead, .split .shead { position: static; }
+}
